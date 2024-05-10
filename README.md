@@ -9,7 +9,7 @@ Developed by Matan Konstantini.
 -   Express.js
 
 ## Installation & Setup:
-1.  Clone the repository: git clone https://github.com/MKonstantini/Gallery-Assignment.git
+1.  Clone the repository: ```git clone https://github.com/MKonstantini/Gallery-Assignment.git```
 2.  Install server dependencies: ```cd server``` -> ```npm install```
 3.  Install client dependencies: ```cd client``` -> ```npm install```
 4.  Run the server: ```cd server``` -> ```npm start```
