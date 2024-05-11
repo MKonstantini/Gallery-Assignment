@@ -1,5 +1,5 @@
 # Gallery Assignment 
-Home assignment for a certain tech company.
+Home assignment for a certain tech company.   
 Developed by Matan Konstantini.
 
 ## Technologies:

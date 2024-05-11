@@ -1,0 +1,36 @@
+// Topic Button
+.topic-button {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    width: 18rem; 
+    height: 6.2rem;  
+    border-radius: 50%;
+    padding-top: 2.4rem;
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+    border: none;
+
+    font-size: 1rem;
+    font-weight: bold;
+}
+.topic-button:hover {
+    background-color: $primary-color-darker;
+}
+
+// Gallery Buttons
+.gallery-button {
+    width: 5.5rem; 
+    height: 2.2rem;
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+}
+.gallery-button:hover {
+    background-color: $primary-color-darker;
+}
