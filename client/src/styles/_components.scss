@@ -1,36 +1,56 @@
-// Topic Button
-.topic-button {
-    position: fixed;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
+@import './variables';
 
-    width: 18rem; 
-    height: 6.2rem;  
+// Overhead Button
+.custom-overhead-button {
+    transform: translate(-50%, -50%); 
+    position: fixed;
+    left: 50%;
+    top: 0%;
+
+    background-color: $primary-color;
     border-radius: 50%;
     padding-top: 2.4rem;
-    background-color: $primary-color;
-    color: white;
     cursor: pointer;
+    color: white;
     border: none;
+    width: 18rem; 
+    height: 6.2rem;  
 
-    font-size: 1rem;
     font-weight: bold;
+    font-size: 1rem;
 }
-.topic-button:hover {
+.custom-overhead-button:hover {
     background-color: $primary-color-darker;
 }
 
-// Gallery Buttons
-.gallery-button {
+// Custom Small Button
+.custom-small-button {
+    background-color: $primary-color;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: white;
+    border: none;
     width: 5.5rem; 
     height: 2.2rem;
-    background-color: $primary-color;
-    color: white;
-    cursor: pointer;
-    border: none;
-    border-radius: 1rem;
 }
-.gallery-button:hover {
+.custom-small-button:hover {
     background-color: $primary-color-darker;
+}
+
+// Custom Modal
+.custom-modal .modal-content {
+    background-color: $primary-color;
+    border-radius: 6rem;
+    min-height: 28rem;
+    
+    text-align: center;
+    color: white;
+}
+
+// Custom Div
+.centered-div {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 45%;
 }

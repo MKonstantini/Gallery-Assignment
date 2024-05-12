@@ -7,7 +7,7 @@ const GalleryButton = ({text, onClick}) => {
     };
 
     return (
-        <button className='gallery-button' onClick={onClick}> {text} </button>
+        <button className='custom-small-button' onClick={onClick}> {text} </button>
     )    
 }
 

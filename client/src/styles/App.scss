@@ -1,5 +1,7 @@
+// external imports
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-@import './variables';
+// Sass partitions
 @import './components';
+@import './variables';
 @import './home';

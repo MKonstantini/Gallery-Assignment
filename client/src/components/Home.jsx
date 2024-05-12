@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { fetchData  } from "../redux/pixabay"
-import TopicButton from "./TopicButton"
+import TopicButton from "./TopicButton/TopicButton"
 import Gallery from "./Gallery/Gallery"
 import { useEffect } from "react"
 
@@ -20,9 +20,9 @@ const Home = () => {
     return (
         <>
             <TopicButton />
-            <div className="home-div text-center">
+            <div className="centered-div text-center">
                 <h1 className="display-5 text-primary fw-bold mb-3">Gallery Assignment</h1>
-                <p className="fst-italic mb-4">Current Topic: {topic}</p>
+                <p className="fst-italic mb-4">Current Topic: {topic.toUpperCase()}</p>
                 <Gallery />
             </div>                
         </>
