@@ -1,13 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
-import { getData } from "../redux/apiData"
+import { fetchData  } from "../redux/pixabay"
 import TopicButton from "./TopicButton"
 import Gallery from "./Gallery/Gallery"
+import { useEffect } from "react"
 
 const Home = () => {
-    const { topic } = useSelector(state => state.apiData);
+    const dispatch = useDispatch();
+    const { topic, page, data } = useSelector(state => state.pixabay);
+    
+    useEffect(() => {
+        // Fetch data when component mounts, or when topic or page changes
+        dispatch(fetchData(topic, page));
+    }, [dispatch, topic, page]);
 
-    const dispatch = useDispatch()
-    dispatch(getData({topic: 'flowers', page: 1}))    
+    console.log("Topic:", topic);
+    console.log("Data:", data);
+    console.log("Page:", page);
 
     return (
         <>

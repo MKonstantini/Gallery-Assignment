@@ -10,7 +10,15 @@
 }
 
 
-// ${import.meta.env.VITE_REACT_API}
-//const requestUrl = `http://localhost:5000//api/pixabay/${topic}/${page}`
-//const response = await axios.get(requestUrl);
-//state.data = response.data
+// setData: (state, action) => {
+//             const { topic, page } = action.payload
+//             const requestUrl = `${import.meta.env.VITE_REACT_API}/api/pixabay/${topic}/${page}`
+            
+//             axios.get(requestUrl)
+//                 .then((response) => {
+//                     state.data = response.data.hits
+//                 })
+//                 .catch((error) => {
+//                     console.error(error);
+//             });
+//         }

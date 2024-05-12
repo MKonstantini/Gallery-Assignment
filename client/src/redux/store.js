@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import apiDataReducer from './apiData';
+import pixabayReducer from './pixabay';
 
 export default configureStore({
     reducer: {
-        apiData: apiDataReducer
+        pixabay: pixabayReducer
     }
 })
