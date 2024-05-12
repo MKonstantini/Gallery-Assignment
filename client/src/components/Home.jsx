@@ -1,9 +1,14 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getData } from "../redux/apiData"
 import TopicButton from "./TopicButton"
 import Gallery from "./Gallery/Gallery"
 
 const Home = () => {
-    const { topic } = useSelector(state => state.apiData)
+    const { topic } = useSelector(state => state.apiData);
+
+    const dispatch = useDispatch()
+    dispatch(getData({topic: 'flowers', page: 1}))    
+
     return (
         <>
             <TopicButton />

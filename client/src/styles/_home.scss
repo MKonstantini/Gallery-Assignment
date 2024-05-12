@@ -8,3 +8,9 @@
 .gallery-section {
     max-width: 440px;
 }
+
+
+// ${import.meta.env.VITE_REACT_API}
+//const requestUrl = `http://localhost:5000//api/pixabay/${topic}/${page}`
+//const response = await axios.get(requestUrl);
+//state.data = response.data

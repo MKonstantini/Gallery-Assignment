@@ -1,18 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from 'axios'
 
-export const apiDataSlice = createSlice({
-    name: "apiData",
+export const pixabaySlice = createSlice({
+    name: "pixabay",
     initialState : {
-        topic: 'burgers',
-        data: 0        
+        topic: 'hobbies',
+        data: []        
     },
     reducers: {
-        changeTopic: (state, topic) => {
-            state.topic = topic.payload
-            state.data = 0
+        getData: (state, action) => {
+            const { topic, page } = action.payload
+            const requestUrl = `${import.meta.env.VITE_REACT_API}/api/pixabay/${topic}/${page}`
+            axios.get(requestUrl)
+                .then((response) => {
+                console.log(response.data.hits);
+                })
+                .catch((error) => {
+                console.error(error);
+            });
         }
     }
 });
 
-export const { changeTopic } = apiDataSlice.actions;
-export default apiDataSlice.reducer;
+export const { getData } = pixabaySlice.actions;
+export default pixabaySlice.reducer;
