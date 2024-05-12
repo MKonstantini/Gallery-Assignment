@@ -35,7 +35,7 @@ export const pixabaySlice = createSlice({
 export const { setDataStart, setDataSuccess, setDataFailure, setTopic, setPage } = pixabaySlice.actions;
 
 // Thunk function to handle async logic
-export const fetchData = (topic, page) => async (dispatch) => {
+export const setDataAsync = (topic, page) => async (dispatch) => {
     dispatch(setTopic(topic));
     dispatch(setPage(page));
     dispatch(setDataStart());

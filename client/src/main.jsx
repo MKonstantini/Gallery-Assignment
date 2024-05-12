@@ -3,10 +3,15 @@ import './styles/index.css';
 import App from './App.jsx';
 import React from 'react';
 
-// Redux
+// Redux setup
 import store from './redux/store.js';
 import { Provider } from 'react-redux';
+import { setDataAsync } from './redux/pixabay.js';
 
+// Load data before rendering App.js
+store.dispatch(setDataAsync('hobbies', 1));
+
+// Render App.js
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

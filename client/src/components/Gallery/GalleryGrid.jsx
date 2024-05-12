@@ -17,7 +17,7 @@ const GalleryGrid = () => {
 
     return (
         <>
-            <div className="row">
+            <div className="row w-100">
                 {
                     data.map((item, index) =>
                         <div key={index} className="col-4 p-0 gallery-item" onClick={() => handleShowModal(item)}>

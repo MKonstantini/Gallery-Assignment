@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TopicModal from './TopicModal';
 
 const TopicButton = () => {
-    // Modal variables and functions
+    // Modal variable and functions
     const [showModal, setShowModal] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);

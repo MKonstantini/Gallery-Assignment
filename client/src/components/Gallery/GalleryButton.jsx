@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 
-const GalleryButton = ({text, onClick}) => {    
+const GalleryButton = ({text, onClickFunc}) => {    
+    // Prop safety checks
     GalleryButton.propTypes = {
         text: PropTypes.string.isRequired,
-        onClick: PropTypes.func
+        onClickFunc: PropTypes.func
     };
 
     return (
-        <button className='custom-small-button' onClick={onClick}> {text} </button>
+        <button className='custom-small-button' onClick={onClickFunc}>{text}</button>
     )    
 }
 
