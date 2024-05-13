@@ -1,18 +1,25 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const PageIndicator = () => {
-    // Variables
     const { page } = useSelector(state => state.pixabay);
 
     return (
-        <>
+        <div className="d-flex gap-3">
             {
                 (page == 1) ? 
-                <p><b>1</b> 2 3</p> :
-                <p>{page-1} <b>{page}</b> {page+1}</p>
+                <>
+                    <p className="fw-bold">1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </> :
+                <>
+                    <p>{page - 1}</p>
+                    <p className="fw-bold">{page}</p>
+                    <p>{page + 1}</p>
+                </>                
             }
-        </>
+        </div>
     )
 }
 
-export default PageIndicator
+export default PageIndicator;

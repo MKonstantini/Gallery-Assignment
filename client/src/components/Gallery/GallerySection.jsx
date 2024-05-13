@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from "react-redux"
-import { setPage, setDataAsync  } from "../../redux/pixabay"
-import GalleryButton from "./GalleryButton"
-import GalleryGrid from './GalleryGrid'
-import PageIndicator from "./PageIndicator"
-import { useEffect } from "react"
+import { setPage, setDataAsync  } from "../../redux/pixabay";
+import { useDispatch, useSelector } from "react-redux";
+import PageIndicator from "./PageIndicator";
+import GalleryButton from "./GalleryButton";
+import GalleryGrid from './GalleryGrid';
+import { useEffect } from "react";
 
 const GallerySection = () => {
-    // Variables
     const { topic, page, loading, error } = useSelector(state => state.pixabay);
     const dispatch = useDispatch();
 
@@ -20,10 +19,10 @@ const GallerySection = () => {
         if (page > 1) {
             dispatch(setPage(page - 1));
         }
-    }
+    };
     const onNext = () => {
         dispatch(setPage(page + 1));
-    }
+    };
 
     return (
         <>
@@ -60,4 +59,4 @@ const GallerySection = () => {
     )
 }
 
-export default GallerySection
+export default GallerySection;

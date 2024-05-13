@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux"
-import { useState } from 'react';
+import { useSelector } from "react-redux";
 import GalleryModal from './GalleryModal';
+import { useState } from 'react';
 
 const GalleryGrid = () => {    
-    // Get pixabay data
     const { data } = useSelector(state => state.pixabay);
 
     // Modal variables and functions
@@ -12,16 +11,21 @@ const GalleryGrid = () => {
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = (data) => {
         setSelectedData(data);
-        setShowModal(true)
+        setShowModal(true);
     };
 
     return (
         <>
             <div className="row w-100">
                 {
+                    // Map pixabay images in 3x3 grid
                     data.map((item, index) =>
-                        <div key={index} className="col-4 p-0 gallery-item" onClick={() => handleShowModal(item)}>
-                            <img src={item.webformatURL} alt='gallery image' className="gallery-img" />
+                        <div 
+                            key={index} 
+                            className="col-4 p-0 gallery-item" 
+                            onClick={() => handleShowModal(item)}
+                        >
+                            <img src={item.webformatURL} alt='gallery-image' className="gallery-img" />
                         </div>
                     )
                 }
@@ -32,4 +36,4 @@ const GalleryGrid = () => {
     );
 }
 
-export default GalleryGrid
+export default GalleryGrid;

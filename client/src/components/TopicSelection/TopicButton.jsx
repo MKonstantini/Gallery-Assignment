@@ -1,21 +1,22 @@
-import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import TopicModal from './TopicModal';
+import { useState } from 'react';
 
 const TopicButton = () => {
-    // Modal variable and functions
+    // Modal variables
     const [showModal, setShowModal] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
 
     return (
         <>
-            <button onClick={handleShow} className='custom-overhead-button'> 
+            <Button onClick={handleShow} className='custom-overhead-button'> 
                 Choose Topic
-            </button>
+            </Button>
 
             <TopicModal show={showModal} handleClose={handleClose}/>            
         </>
     )
 }
 
-export default TopicButton
+export default TopicButton;

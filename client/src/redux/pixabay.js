@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from 'axios'
+import axios from 'axios';
+
+// Base topics for defualt topic and topics modal
+export const featuredTopics = ['hobbies', 'food', 'pets', 'work', 'sport'];
 
 export const pixabaySlice = createSlice({
     name: "pixabay",
     initialState : {
-        topic: 'hobbies',
+        topic: featuredTopics[0],
         page: 1,
         data: [],
         loading: false,
@@ -34,7 +37,7 @@ export const pixabaySlice = createSlice({
 
 export const { setDataStart, setDataSuccess, setDataFailure, setTopic, setPage } = pixabaySlice.actions;
 
-// Thunk function to handle async logic
+// Thunk function to handle async
 export const setDataAsync = (topic, page) => async (dispatch) => {
     dispatch(setTopic(topic));
     dispatch(setPage(page));
