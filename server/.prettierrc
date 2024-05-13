@@ -1,0 +1,16 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "jsxSingleQuote": true,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": ["**/*.html", "**/*.htm"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

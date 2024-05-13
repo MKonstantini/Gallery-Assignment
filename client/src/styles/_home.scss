@@ -1,27 +1,22 @@
 // Gallery Section
 .gallery-section {
-    max-width: 440px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.gallery-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.gallery-item {        
-    aspect-ratio: 1;
+.gallery-item {
+  aspect-ratio: 1;
 }
 .gallery-img {
-    transition: transform 0.5s ease;
-    object-fit: cover;
-    padding: 0.2rem;
-    width: 100%;
-    height: 100%;
+  transition: transform 0.5s ease;
+  object-fit: cover;
+  padding: 0.2rem;
+  width: 100%;
+  height: 100%;
 }
 .gallery-img:hover {
-    transition: transform 0.5s ease;
-    transform: scale(0.95);
-    cursor: pointer;
+  transition: transform 0.5s ease;
+  transform: scale(0.95);
+  cursor: pointer;
 }
