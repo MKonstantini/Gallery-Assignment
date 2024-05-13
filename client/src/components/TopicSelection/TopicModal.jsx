@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Form, InputGroup } from 'react-bootstrap';
 import { setPage, setTopic  } from "../../redux/pixabay"
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useRef } from "react";
 
 const TopicModal = ({ show, handleClose }) => {
     // Variables
@@ -16,6 +19,13 @@ const TopicModal = ({ show, handleClose }) => {
         handleClose();
     }
 
+    // Searchbar handling
+    const inputRef = useRef(null);
+    const handleSearch = () => {
+        const inputValue = inputRef.current.value;
+        onTopicSelect(inputValue)
+    }    
+
     // Styling function
     const capitalizeFirstLetter = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -23,11 +33,12 @@ const TopicModal = ({ show, handleClose }) => {
 
     return (
         <Modal show={show} onHide={handleClose} dialogClassName="custom-modal">
-            <Modal.Body className='p-5 w-75 m-auto' >
+            <Modal.Body className='py-5 px-0 px-sm-5 w-75 m-auto' >
+                    {/* Header */}
                     <h1 className='mb-4'>Choose Topic</h1>
                     <hr />
+                    {/* Displayed Topics */}
                     {
-                        // Button for each topic
                         displayTopics.map((displayTopic, index) =>
                             <Button 
                                 key={index} 
@@ -39,7 +50,16 @@ const TopicModal = ({ show, handleClose }) => {
                             </Button>
                         )
                     } 
-                    <hr />                    
+                    <hr />
+                    {/* Search Bar */}
+                    <InputGroup>
+                        <Form.Control placeholder="Search..." ref={inputRef}/>
+                        <Button variant="secondary" onClick={handleSearch}>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </Button>
+                    </InputGroup>
+                    <hr />        
+                    {/* Cancel Button */}
                     <Button variant="light" onClick={handleClose} className='w-100 my-2'>
                         Cancel
                     </Button>          

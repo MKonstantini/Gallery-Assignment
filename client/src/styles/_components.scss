@@ -45,14 +45,33 @@
     text-align: center;
     color: white;
 }
+.custom-modal .modal-content img {
+    max-height: 12rem;
+    max-width: 100%;
+    border-radius: 0.5rem;
+}
+.custom-modal .modal-content a {
+    position: relative;
+    border-radius: 5rem;
+    top: -1rem;
+}
 
-// Custom Div
+// Custom Divs
 .centered-div {
     transform: translate(-50%, -50%);
     position: absolute;
     left: 50%;
-    top: 45%;
+    top: 52%;
 }
 .spaced-div {
-    min-height: 580px;
+    min-height: 554px;
+}
+
+// Logo Img
+.logo-img {
+    transform: translate(-50%, -50%);
+    position: absolute;   
+    top: 2.0rem;
+    opacity: 50%;
+    z-index: -1;
 }
