@@ -1,14 +1,14 @@
+import { getPictureDataByPage, getPictureData } from '../pixabayAPI.js'
 import express from 'express'
-import axios from 'axios'
-import { getPictureData } from '../pixabayAPI.js'
+
 const router = express.Router()
 
-// Get by category and page - main endpoint
-router.get('/:category/:page', async (req, res) => {
-  const { category, page } = req.params
+// Get by category
+router.get('/:category', async (req, res) => {
+  const { category } = req.params
 
   try {
-    const data = await getPictureData(category, page)
+    const data = await getPictureData(category)
     res.status(200).send(data)
   } catch (error) {
     console.error('Error fetching data:', error)
@@ -16,22 +16,28 @@ router.get('/:category/:page', async (req, res) => {
   }
 })
 
-// Get with sorting
-router.get('/:category/sort/:sortparam', async (req, res) => {
-  const { category, sortParam } = req.params
-
-  const url = `https://pixabay.com/api/?key=${apiKey}&q=${category}`
+// Get by category and page (used in client)
+router.get('/:category/:page', async (req, res) => {
+  const { category, page } = req.params
 
   try {
-    const response = await axios.get(url)
-    let data = response.data.hits
+    const data = await getPictureDataByPage(category, page)
+    res.status(200).send(data)
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    res.status(500).send({ message: 'Error fetching images' })
+  }
+})
 
-    // Sort data by sorting parameter (if exists)
-    if (sortParam === 'date') {
-      data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-    } else if (sortParam) {
-      data.sort((a, b) => a[sortParam] - b[sortParam])
-    }
+// Get by category with sorting
+router.get('/:category/sort/:sortparam', async (req, res) => {
+  const { category, sortparam } = req.params
+  // Infer 'created' field when attempting sort by 'date'
+  if (sortparam == 'date') sortparam = 'created'
+
+  try {
+    const data = await getPictureData(category)
+    data.sort((a, b) => a[sortparam] - b[sortparam])
 
     res.status(200).send(data)
   } catch (error) {

@@ -49,7 +49,7 @@ const GalleryModal = ({ show, handleClose, data }) => {
                 key={index}
                 className='d-sm-flex align-items-center gap-3 mb-3'
               >
-                <div className='d-flex gap-2 gap-sm-3 align-items-center justify-content-center justify-content-sm-start'>
+                <div className='d-flex gap-2 align-items-center justify-content-center justify-content-sm-start'>
                   <FontAwesomeIcon icon={row.icon} />
                   <p className='m-0 fw-bold'>{row.title}:</p>
                 </div>
