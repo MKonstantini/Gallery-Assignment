@@ -30,6 +30,7 @@ const GalleryModal = ({ show, handleClose, data }) => {
           {/* Title */}
           <h1 className='mb-4'>Image Details</h1>
           <hr className='mb-4' />
+
           {/* Image */}
           <div>
             <img
@@ -41,25 +42,35 @@ const GalleryModal = ({ show, handleClose, data }) => {
           <a href={data.pageURL} target='_blank' className='btn btn-light mb-0'>
             Pixabay
           </a>
-          {/* Details */}
           <hr className='mt-0' />
-          <div className='text-start ms-2'>
+
+          {/* Details */}
+          <div>
             {modalDetailRows.map((row, index) => (
-              <div
-                key={index}
-                className='d-sm-flex align-items-center gap-3 mb-3'
-              >
-                <div className='d-flex gap-2 align-items-center justify-content-center justify-content-sm-start'>
+              <div key={index} className='w-100 mb-3 d-flex align-items-center'>
+                {/* Icon and title */}
+                <div className='d-flex gap-2 align-items-center'>
                   <FontAwesomeIcon icon={row.icon} />
-                  <p className='m-0 fw-bold'>{row.title}:</p>
+                  <p className='m-0 me-2 fw-bold'>{row.title}:</p>
                 </div>
-                <p className='m-0 text-center text-sm-start'>
-                  {data[row.fieldName]}
-                </p>
+
+                {/* Data */}
+                {row.fieldName == 'tags' ? (
+                  <div className='d-flex flex-wrap ms-auto justify-content-end'>
+                    {data.tags.split(', ').map((tag, index) => (
+                      <span key={index} className='styled-chip'>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <p className='m-0 ms-auto'>{data[row.fieldName]}</p>
+                )}
               </div>
             ))}
           </div>
           <hr />
+
           {/* Close Button */}
           <Button variant='light' onClick={handleClose} className='w-100 my-2'>
             Close

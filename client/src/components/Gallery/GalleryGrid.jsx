@@ -18,7 +18,7 @@ const GalleryGrid = () => {
     <>
       <div className='row w-100'>
         {
-          // Map pixabay images in 3x3 grid
+          // Map images in 3x3 grid
           data.map((item, index) => (
             <div
               key={index}
