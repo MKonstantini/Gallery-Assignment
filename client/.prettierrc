@@ -2,15 +2,7 @@
   "semi": false,
   "singleQuote": true,
   "trailingComma": "all",
-  "jsxSingleQuote": true,
+  "jsxSingleQuote": false,
   "tabWidth": 2,
-  "printWidth": 80,
-  "overrides": [
-    {
-      "files": ["**/*.html", "**/*.htm"],
-      "options": {
-        "singleQuote": false
-      }
-    }
-  ]
+  "printWidth": 80
 }

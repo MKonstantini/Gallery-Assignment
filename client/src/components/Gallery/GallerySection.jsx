@@ -6,13 +6,17 @@ import { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 
 const GallerySection = () => {
-  const { topic, page, loading, error } = useSelector((state) => state.pixabay)
+  const { topic, page, loading, error, data } = useSelector(
+    (state) => state.pixabay,
+  )
   const dispatch = useDispatch()
 
   // Update data on topic or page change
   useEffect(() => {
     dispatch(setDataAsync(topic, page))
   }, [dispatch, topic, page])
+
+  console.log(data)
 
   // Previous/Next button functions
   const onPrevious = () => {
@@ -27,25 +31,25 @@ const GallerySection = () => {
   return (
     <>
       {loading ? (
-        <div className='text-center spaced-div d-flex align-items-center justify-content-center'>
+        <div className="spaced-div text-center d-flex align-items-center justify-content-center">
           <p>Loading...</p>
         </div>
       ) : error ? (
-        <div className='text-center'>
+        <div className="spaced-div text-center">
           <p>Error: {error}</p>
           <p>Sorry! Try reloading the page.</p>
         </div>
       ) : (
-        <section className='gallery-section'>
-          <p className='fst-italic mb-4'>
+        <section className="spaced-div gallery-section">
+          <p className="fst-italic mb-4">
             Current Topic: {topic.toUpperCase()}
           </p>
           {/* Previous/Next Buttons */}
-          <div className='d-flex justify-content-between w-100 mb-3'>
-            <Button className='custom-small-button' onClick={onPrevious}>
+          <div className="d-flex justify-content-between w-100 mb-3">
+            <Button className="custom-small-button" onClick={onPrevious}>
               Previous
             </Button>
-            <Button className='custom-small-button' onClick={onNext}>
+            <Button className="custom-small-button" onClick={onNext}>
               Next
             </Button>
           </div>

@@ -37,20 +37,20 @@ const TopicModal = ({ show, handleClose }) => {
   }
 
   return (
-    <Modal show={show} onHide={handleClose} dialogClassName='custom-modal'>
-      <Modal.Body className='py-5 px-0 px-sm-5 w-75 m-auto'>
+    <Modal show={show} onHide={handleClose} dialogClassName="custom-modal">
+      <Modal.Body className="py-5 px-0 px-sm-5 w-75 m-auto">
         {/* Header */}
-        <h1 className='mb-4'>Choose Topic</h1>
+        <h1 className="mb-4">Choose Topic</h1>
         <hr />
 
         {/* Featured */}
-        <p className='fst-italic m-0'>Featured:</p>
+        <p className="fst-italic m-0">Featured:</p>
         {featuredTopics.map((item, index) =>
           item == topic ? (
             <Button
               key={index}
-              className='selected-styling w-100 my-2 border-0'
-              variant='none'
+              className="selected-styling w-100 my-2 border-0"
+              variant="none"
             >
               {capitalizeFirstLetter(item)}
             </Button>
@@ -58,8 +58,8 @@ const TopicModal = ({ show, handleClose }) => {
             <Button
               key={index}
               onClick={() => onTopicSelect(item)}
-              className='w-100 my-2'
-              variant='light'
+              className="w-100 my-2"
+              variant="light"
             >
               {capitalizeFirstLetter(item)}
             </Button>
@@ -68,15 +68,15 @@ const TopicModal = ({ show, handleClose }) => {
         <hr />
 
         {/* Search */}
-        <p className='fst-italic mb-1'>Search Anything:</p>
+        <p className="fst-italic mb-1">Search Anything:</p>
         <InputGroup>
-          <Form.Control placeholder='Search...' type='text' ref={inputRef} />
-          <Button variant='secondary' onClick={handleSearch}>
+          <Form.Control placeholder="Search..." type="text" ref={inputRef} />
+          <Button variant="secondary" onClick={handleSearch}>
             <FontAwesomeIcon icon={faSearch} />
           </Button>
         </InputGroup>
         {isSearchEmpty && (
-          <p className='mt-1 text-white fw-bold fst-italic'>
+          <p className="mt-1 text-white fw-bold fst-italic">
             Enter your search!
           </p>
         )}
@@ -84,12 +84,12 @@ const TopicModal = ({ show, handleClose }) => {
 
         {/* Cancel Button */}
         <Button
-          variant='light'
+          variant="light"
           onClick={() => {
             handleClose()
             setIsSearchEmpty(false)
           }}
-          className='w-100 my-2'
+          className="w-100 my-2"
         >
           Cancel
         </Button>

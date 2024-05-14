@@ -40,14 +40,14 @@ const PageIndicator = () => {
 
   // Map items
   return (
-    <div className='d-flex gap-3 mt-1'>
+    <div className="d-flex gap-3 mt-1">
       {generateDisplayedRow().map((item, index) => {
         if (item == page)
           return (
             <Button
               key={index}
-              variant='link'
-              className='fw-bold text-black fw-light p-0'
+              variant="link"
+              className="fw-bold text-black fw-light p-0"
             >
               {item}
             </Button>
@@ -56,8 +56,8 @@ const PageIndicator = () => {
           return (
             <Button
               key={index}
-              variant='link'
-              className='text-black fw-light p-0'
+              variant="link"
+              className="text-black fw-light p-0"
               onClick={() => dispatch(setPage(item))}
             >
               {item}
@@ -65,8 +65,8 @@ const PageIndicator = () => {
           )
         else if (item == 'dots')
           return (
-            <div key={index} className='d-flex align-items-end'>
-              <p className='mb-0'>. . .</p>
+            <div key={index} className="d-flex align-items-end">
+              <p className="mb-0">. . .</p>
             </div>
           )
       })}

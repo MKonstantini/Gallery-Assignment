@@ -16,19 +16,19 @@ const GalleryGrid = () => {
 
   return (
     <>
-      <div className='row w-100'>
+      <div className="row w-100">
         {
           // Map images in 3x3 grid
           data.map((item, index) => (
             <div
               key={index}
-              className='col-4 p-0 gallery-item'
+              className="col-4 p-0 gallery-item"
               onClick={() => handleShowModal(item)}
             >
               <img
                 src={item.webformatURL}
-                alt='gallery-image'
-                className='gallery-img'
+                alt="gallery-image"
+                className="gallery-img"
               />
             </div>
           ))

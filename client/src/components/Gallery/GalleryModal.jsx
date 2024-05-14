@@ -25,46 +25,46 @@ const GalleryModal = ({ show, handleClose, data }) => {
 
   return (
     data && (
-      <Modal show={show} onHide={handleClose} dialogClassName='custom-modal'>
-        <Modal.Body className='py-5 px-0 px-sm-5 w-75 m-auto'>
+      <Modal show={show} onHide={handleClose} dialogClassName="custom-modal">
+        <Modal.Body className="py-5 px-0 px-sm-5 w-75 m-auto">
           {/* Title */}
-          <h1 className='mb-4'>Image Details</h1>
-          <hr className='mb-4' />
+          <h1 className="mb-4">Image Details</h1>
+          <hr className="mb-4" />
 
           {/* Image */}
           <div>
             <img
               src={data.webformatURL}
-              alt='selected image'
-              className='w-auto'
+              alt="selected image"
+              className="w-auto"
             />
           </div>
-          <a href={data.pageURL} target='_blank' className='btn btn-light mb-0'>
+          <a href={data.pageURL} target="_blank" className="btn btn-light mb-0">
             Pixabay
           </a>
-          <hr className='mt-0' />
+          <hr className="mt-0" />
 
           {/* Details */}
           <div>
             {modalDetailRows.map((row, index) => (
-              <div key={index} className='w-100 mb-3 d-flex align-items-center'>
+              <div key={index} className="w-100 mb-3 d-flex align-items-center">
                 {/* Icon and title */}
-                <div className='d-flex gap-2 align-items-center'>
+                <div className="d-flex gap-2 align-items-center">
                   <FontAwesomeIcon icon={row.icon} />
-                  <p className='m-0 me-2 fw-bold'>{row.title}:</p>
+                  <p className="m-0 me-2 fw-bold">{row.title}:</p>
                 </div>
 
                 {/* Data */}
                 {row.fieldName == 'tags' ? (
-                  <div className='d-flex flex-wrap ms-auto justify-content-end'>
+                  <div className="d-flex flex-wrap ms-auto justify-content-end">
                     {data.tags.split(', ').map((tag, index) => (
-                      <span key={index} className='styled-chip'>
+                      <span key={index} className="styled-chip">
                         {tag}
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <p className='m-0 ms-auto'>{data[row.fieldName]}</p>
+                  <p className="m-0 ms-auto">{data[row.fieldName]}</p>
                 )}
               </div>
             ))}
@@ -72,7 +72,7 @@ const GalleryModal = ({ show, handleClose, data }) => {
           <hr />
 
           {/* Close Button */}
-          <Button variant='light' onClick={handleClose} className='w-100 my-2'>
+          <Button variant="light" onClick={handleClose} className="w-100 my-2">
             Close
           </Button>
         </Modal.Body>
