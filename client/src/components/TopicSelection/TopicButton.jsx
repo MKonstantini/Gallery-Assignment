@@ -1,12 +1,12 @@
-import { Button } from 'react-bootstrap'
-import TopicModal from './TopicModal'
-import { useState } from 'react'
+import { Button } from 'react-bootstrap';
+import TopicModal from './TopicModal';
+import { useState } from 'react';
 
 const TopicButton = () => {
   // Modal variables
-  const [showModal, setShowModal] = useState(false)
-  const handleClose = () => setShowModal(false)
-  const handleShow = () => setShowModal(true)
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   return (
     <>
@@ -16,7 +16,7 @@ const TopicButton = () => {
 
       <TopicModal show={showModal} handleClose={handleClose} />
     </>
-  )
-}
+  );
+};
 
-export default TopicButton
+export default TopicButton;

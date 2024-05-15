@@ -1,14 +1,14 @@
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import React from 'react'
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import React from 'react';
 
 // Redux setup
-import store from './redux/store.js'
-import { Provider } from 'react-redux'
-import { featuredTopics, setDataAsync } from './redux/pixabay.js'
+import store from './redux/store.js';
+import { Provider } from 'react-redux';
+import { featuredTopics, setDataAsync } from './redux/pixabay.js';
 
 // Load data before rendering App.js
-store.dispatch(setDataAsync(featuredTopics[0], 1))
+store.dispatch(setDataAsync(featuredTopics[0], 1));
 
 // Render App.js
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -17,4 +17,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <App />
     </Provider>
   </React.StrictMode>,
-)
+);

@@ -6,10 +6,10 @@ import {
   faThumbsUp,
   faComment,
   faBoxArchive,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Modal, Button } from 'react-bootstrap'
-import PropTypes from 'prop-types'
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Modal, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const GalleryModal = ({ show, handleClose, data }) => {
   // Object data by row for mapping
@@ -21,7 +21,7 @@ const GalleryModal = ({ show, handleClose, data }) => {
     { title: 'Likes', icon: faThumbsUp, fieldName: 'likes' },
     { title: 'Comments', icon: faComment, fieldName: 'comments' },
     { title: 'Collections', icon: faBoxArchive, fieldName: 'collections' },
-  ]
+  ];
 
   return (
     data && (
@@ -78,14 +78,14 @@ const GalleryModal = ({ show, handleClose, data }) => {
         </Modal.Body>
       </Modal>
     )
-  )
-}
+  );
+};
 
 // Prop safety check
 GalleryModal.propTypes = {
   show: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   data: PropTypes.object,
-}
+};
 
-export default GalleryModal
+export default GalleryModal;

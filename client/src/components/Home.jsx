@@ -1,5 +1,5 @@
-import TopicButton from './TopicSelection/TopicButton'
-import Gallery from './Gallery/GallerySection'
+import TopicButton from './TopicSelection/TopicButton';
+import Gallery from './Gallery/GallerySection';
 
 const Home = () => {
   return (
@@ -23,7 +23,7 @@ const Home = () => {
         <Gallery />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

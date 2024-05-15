@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const PageIndicator = () => {
   const { topic, page, data } = useSelector((state) => state.pixabay);
   const dispatch = useDispatch();
+  const dots = '. . .';
 
   // Generate displayed row
   const generateDisplayedRow = () => {
@@ -15,7 +16,7 @@ const PageIndicator = () => {
 
     // prefix dots
     if (!isStart) {
-      displayedRow.push('dots');
+      displayedRow.push(dots);
     }
 
     // push pages
@@ -31,7 +32,7 @@ const PageIndicator = () => {
 
     // suffix dots
     if (!isEnd) {
-      displayedRow.push('dots');
+      displayedRow.push(dots);
     }
 
     return displayedRow;
@@ -47,6 +48,7 @@ const PageIndicator = () => {
               key={index}
               variant="link"
               className="fw-bold text-black fw-light p-0"
+              disabled={true}
             >
               {item}
             </Button>
@@ -62,10 +64,10 @@ const PageIndicator = () => {
               {item}
             </Button>
           );
-        else if (item == 'dots')
+        else if (item == dots)
           return (
             <div key={index} className="d-flex align-items-end">
-              <p className="mb-0">. . .</p>
+              <p className="mb-0">{item}</p>
             </div>
           );
       })}

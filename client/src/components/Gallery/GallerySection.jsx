@@ -14,12 +14,10 @@ const GallerySection = () => {
 
   // Previous/Next button functions
   const onPrevious = () => {
-    if (page > 1) {
-      dispatch(setDataAsync(topic, page - 1));
-    }
+    if (page > 1) dispatch(setDataAsync(topic, page - 1));
   };
   const onNext = () => {
-    dispatch(setDataAsync(topic, page + 1));
+    if (data.length == 9) dispatch(setDataAsync(topic, page + 1));
   };
 
   return (

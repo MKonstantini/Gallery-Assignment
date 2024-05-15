@@ -52,7 +52,7 @@ export const setDataAsync = (topic, page) => async (dispatch) => {
   try {
     const requestUrl = `${
       import.meta.env.VITE_REACT_API
-    }/api/pixabay/${topic}/${page}`;
+    }/api/pixabay/${topic}?page=${page}`;
     const response = await axios.get(requestUrl);
     dispatch(setDataSuccess(response.data));
   } catch (error) {
