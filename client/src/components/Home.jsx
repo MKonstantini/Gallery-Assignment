@@ -11,7 +11,7 @@ const Home = () => {
       <div className="centered-div text-center">
         <header>
           <img
-            src="../../public/Logo_GalleryAssignment.svg"
+            src="/Logo_GalleryAssignment.svg"
             alt="logo"
             className="logo-img w-50"
           />

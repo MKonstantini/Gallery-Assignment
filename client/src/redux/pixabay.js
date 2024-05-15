@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 // Base topics for defualt topic and topics modal
-export const featuredTopics = ['hobbies', 'food', 'pets', 'work', 'sport']
+export const featuredTopics = ['hobbies', 'food', 'pets', 'work', 'sport'];
 
 export const pixabaySlice = createSlice({
   name: 'pixabay',
@@ -15,25 +15,27 @@ export const pixabaySlice = createSlice({
   },
   reducers: {
     setTopic: (state, action) => {
-      state.topic = action.payload
+      state.topic = action.payload;
     },
     setPage: (state, action) => {
-      state.page = action.payload
+      state.page = action.payload;
     },
-    setDataStart: (state) => {
-      state.loading = true
-      state.error = null
+    setDataStart: (state, action) => {
+      state.loading = true;
+      state.error = null;
+      state.page = action.payload.page;
+      state.topic = action.payload.topic;
     },
     setDataSuccess: (state, action) => {
-      state.loading = false
-      state.data = action.payload
+      state.loading = false;
+      state.data = action.payload;
     },
     setDataFailure: (state, action) => {
-      state.loading = false
-      state.error = action.payload
+      state.loading = false;
+      state.error = action.payload;
     },
   },
-})
+});
 
 export const {
   setDataStart,
@@ -41,23 +43,22 @@ export const {
   setDataFailure,
   setTopic,
   setPage,
-} = pixabaySlice.actions
+} = pixabaySlice.actions;
 
 // Thunk function to handle async
 export const setDataAsync = (topic, page) => async (dispatch) => {
-  dispatch(setTopic(topic))
-  dispatch(setPage(page))
-  dispatch(setDataStart())
+  console.log('set data async');
+  dispatch(setDataStart({ topic, page }));
   try {
     const requestUrl = `${
       import.meta.env.VITE_REACT_API
-    }/api/pixabay/${topic}/${page}`
-    const response = await axios.get(requestUrl)
-    dispatch(setDataSuccess(response.data))
+    }/api/pixabay/${topic}/${page}`;
+    const response = await axios.get(requestUrl);
+    dispatch(setDataSuccess(response.data));
   } catch (error) {
-    dispatch(setDataFailure(error.message))
-    console.error(error)
+    dispatch(setDataFailure(error.message));
+    console.error(error);
   }
-}
+};
 
-export default pixabaySlice.reducer
+export default pixabaySlice.reducer;

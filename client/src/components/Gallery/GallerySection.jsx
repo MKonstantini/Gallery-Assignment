@@ -1,32 +1,26 @@
-import { setPage, setDataAsync } from '../../redux/pixabay'
-import { useDispatch, useSelector } from 'react-redux'
-import PageIndicator from './PageIndicator'
-import GalleryGrid from './GalleryGrid'
-import { useEffect } from 'react'
-import { Button } from 'react-bootstrap'
+import { setDataAsync } from '../../redux/pixabay';
+import { useDispatch, useSelector } from 'react-redux';
+import PageIndicator from './PageIndicator';
+import GalleryGrid from './GalleryGrid';
+import { Button } from 'react-bootstrap';
 
 const GallerySection = () => {
   const { topic, page, loading, error, data } = useSelector(
     (state) => state.pixabay,
-  )
-  const dispatch = useDispatch()
+  );
+  const dispatch = useDispatch();
 
-  // Update data on topic or page change
-  useEffect(() => {
-    dispatch(setDataAsync(topic, page))
-  }, [dispatch, topic, page])
-
-  console.log(data)
+  console.log(data);
 
   // Previous/Next button functions
   const onPrevious = () => {
     if (page > 1) {
-      dispatch(setPage(page - 1))
+      dispatch(setDataAsync(topic, page - 1));
     }
-  }
+  };
   const onNext = () => {
-    dispatch(setPage(page + 1))
-  }
+    dispatch(setDataAsync(topic, page + 1));
+  };
 
   return (
     <>
@@ -60,7 +54,7 @@ const GallerySection = () => {
         </section>
       )}
     </>
-  )
-}
+  );
+};
 
-export default GallerySection
+export default GallerySection;
