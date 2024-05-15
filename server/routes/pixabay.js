@@ -7,45 +7,50 @@ import {
 
 const router = express.Router();
 
-// Get by category
+// Get by category with extension for page query
 router.get('/:category', async (req, res) => {
   const { category } = req.params;
+  const { page } = req.query;
 
-  try {
-    const data = await getPictureData(category);
-    res.status(200).send(data);
-  } catch (error) {
-    res.status(500).send({ message: 'Error fetching images' });
-    console.error('Error fetching data:', error);
+  if (page) {
+    // Check if page query parameter exists
+    const pageNumber = parseInt(page);
+    if (isNaN(pageNumber) || pageNumber <= 0) {
+      return res.status(400).send({ message: 'Invalid page number' });
+    }
+    try {
+      const data = await getPictureDataByPage(category, pageNumber);
+      res.status(200).send(data);
+    } catch (error) {
+      res.status(500).send({ message: 'Error fetching images' });
+      console.error('Error fetching data:', error);
+    }
+  } else {
+    try {
+      const data = await getPictureData(category);
+      res.status(200).send(data);
+    } catch (error) {
+      res.status(500).send({ message: 'Error fetching images' });
+      console.error('Error fetching data:', error);
+    }
   }
 });
 
-// Get by category and page (used in client)
-router.get('/:category/:page', async (req, res) => {
-  const { category, page } = req.params;
+// Get with sorting
+router.get('/sort/:category', async (req, res) => {
+  const { category } = req.params;
+  const { sortparam } = req.query;
 
-  // Validate page parameter
-  const pageNumber = parseInt(page);
-  if (isNaN(pageNumber) || pageNumber <= 0) {
-    return res.status(400).send({ message: 'Invalid page number' });
-  }
-
-  try {
-    const data = await getPictureDataByPage(category, pageNumber);
-    res.status(200).send(data);
-  } catch (error) {
-    res.status(500).send({ message: 'Error fetching images' });
-    console.error('Error fetching data:', error);
-  }
-});
-
-// Get by category with sorting
-router.get('/:category/sort/:sortparam', async (req, res) => {
-  const { category, sortparam } = req.params;
-
-  // Validate sortparam
-  if (!expectedFields.includes(sortparam.toLocaleLowerCase())) {
-    return res.status(400).send({ message: 'Invalid sort parameter' });
+  // Validate request
+  if (
+    !sortparam ||
+    !expectedFields
+      .map((field) => field.toLowerCase())
+      .includes(sortparam.toLowerCase())
+  ) {
+    return res
+      .status(400)
+      .send({ message: 'Please enter a valid sort parameter' });
   }
 
   try {

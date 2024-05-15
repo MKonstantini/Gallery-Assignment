@@ -6,12 +6,11 @@ const PageIndicator = () => {
   const { topic, page, data } = useSelector((state) => state.pixabay);
   const dispatch = useDispatch();
 
-  // Pagination variables
-  const isStart = page < 3;
-  const isEnd = data.length < 9;
-
   // Generate displayed row
   const generateDisplayedRow = () => {
+    // Pagination variables
+    const isStart = page < 3;
+    const isEnd = data.length < 9;
     const displayedRow = [];
 
     // prefix dots
